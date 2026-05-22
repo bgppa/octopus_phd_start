@@ -1,4 +1,4 @@
-*LEGACY CODE* Here for nostalgia.
+**LEGACY CODE**
 
 OCTOPUS is a structured collection of mathematical utilities arising
 during my PhD studies.
@@ -8,28 +8,26 @@ and check empirically how many theoretical results behave in practice.
 
 The **core** problem is here explained.
 Given:
-         - a function G: R^n -> R^m
-         - a (noised) observation y \in R^m
+ - a function G: $R^n \to R^m$
+ - a (noised) observation $y \in R^m$
 Find:
-        - element x \in R^n such that G(x) = y ("almost")
+ - element $x \in R^n$ such that $G(x) = y$ ("almost")
 
 In other words: find a preimage of a noised y for a function G.
 The technique here developed is bayesian.
 I.e.: 
-        1. start on a "believe" on x
-        (can be a random value, if have no idea)
-        believe = some probability measure, called "prior"
+ 1. start on a "believe" on x (can be a random value, if have no idea). Believe = some probability measure, called "prior"
         
-        2. walk around such a belive, take a new_point,
-        observe how close G(new_point) is to y;
-        Accept if enough, refuse otherwise.
-        decision process = MCMC with Gibbs potential
+ 2. walk around such a belive, take a new_point,
+ observe how close G(new_point) is to y;
+  Accept if enough, refuse otherwise.
+ decision process = MCMC with Gibbs potential
 
-        3. at the end obtain a *probability*
+ 3. at the end obtain a *probability*
         distribution for possible x values.
         called: posterior distribution.
 
-        4. a kmeans algorithm (i.e. multidimensional histograms)
+ 4. a kmeans algorithm (i.e. multidimensional histograms)
         tells what is the most probably value for x,
         "solving" the problem of G(x) = y.
         called: MAP
@@ -38,10 +36,10 @@ I.e.:
 The algorithm above is sometimes called "bayesian inversion",
 or "bayesian reconstruction", or similar.
 Note that it involves:
-        - linear algebra operations (of course...);
-        - some probability (MCMC,...);
-        - machine learning (kmeans);
-        - the ability to implement G, the operator.
+ - linear algebra operations (of course...);
+ - some probability (MCMC,...);
+ - machine learning (kmeans);
+ - the ability to implement G, the operator.
 
 The last point is the hardest: G can be taken, for example, as a ordered
 outcome of a PDE. Therefore, to evaluate and simulate G (step required)
