@@ -1,3 +1,5 @@
+*LEGACY CODE*
+
 OCTOPUS is a structured collection of mathematical utilities arising
 during my PhD studies.
 
